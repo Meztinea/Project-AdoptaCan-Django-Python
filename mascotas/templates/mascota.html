@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-5">
+                <img src="{{ mascota.imagen.url }}" class="img-fluid">
+            </div>
+            <div class="col">
+                <div class="jumbotron">
+                    <h3 class="display-4">{{ mascota.nombre }}</h3>
+                    <hr class="my-4">
+                    <h5>Raza: {{ mascota.raza }}</h5>
+                    <h5>Genero: {{ mascota.get_sexo_display }}</h5>
+                    <h5>Edad: {{ mascota.get_edad_display }}</h5>
+                    <h5>Tamaño: {{ mascota.get_tamaño_display }}</h5>
+                    <h5>Fecha de ingreso: {{ mascota.fecha_creacion.date }}</h5>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- 
+        <div class="comment">
+            <div class="date">Miercoles 21 de Diciembre</div>
+            <strong>Camila Gomez</strong>
+            <p>Este es un comentario de Ejemplo</p>
+        </div>
+    
+        <div class="container">
+            <h2>Leave your comments</h2>
+            <form action="/" method="POST" class="post-form">
+                <p>Esto es un formulario para agregar comentarios</p>
+                <button type="submit" class="save btn btn-dark">Save</button>
+            </form>
+        </div>
+        -->
+    </div>
+{% endblock %}

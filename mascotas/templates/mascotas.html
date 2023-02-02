@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        {% for mascota in mascotas %}
+        {% if forloop.first %}<div class="row">{% endif %}
+            <div class="col-3"> 
+                <div class="card">
+                    <img src="{{ mascota.imagen.url }}"  class="card-img-top float-start">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ mascota.nombre }}</h5>
+                        <h5 class="card-title">{{ mascota.get_sexo_display }}</h5>
+                        <h5 class="card-title">{{ mascota.get_edad_display }}</h5>
+                        <a class="btn btn-dark" href="{% url 'mascota' id=mascota.id %}">Ver mas</a>
+                        <!-- Al dar clic en adpotar, enviar directo a llenar un formulario  -->
+                        <a class="btn btn-dark" href="{% url 'mascota' id=mascota.id %}">Adoptar</a>
+                    </div>
+                </div>
+            </div>
+        {% if forloop.counter|divisibleby:4 %} </div> <br/> <div class="row"> {% endif %}        
+        {% if forloop.last %}</div>{% endif %}        
+        {% endfor %}   
+    </div>
+{% endblock %}
