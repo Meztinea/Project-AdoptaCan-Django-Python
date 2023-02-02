@@ -46,4 +46,4 @@ DATABASES = {
 
 ## Diagrama de Base de Datos: 
 
-
+![Base de Datos](adoptacan_database.png)
